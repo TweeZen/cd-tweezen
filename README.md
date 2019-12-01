@@ -1,2 +1,2 @@
-# cd-tweezen
-Continuous Delivery for the TweeZen project
+# TweeZen Deployment Repository
+Continuous Deployment for the TweeZen project
