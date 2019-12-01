@@ -25,12 +25,10 @@ pipeline {
         }
         stage('Deployment') {
             steps {
-                dir("deployment") {
-                    sh '''
-                        kubectl apply -f deployment_redis.yaml
-                        kubectl apply -f deployment_app.yaml
-                    '''
-                }
+                sh '''
+                    kubectl apply -f deployment_redis.yaml
+                    kubectl apply -f deployment_app.yaml
+                '''
             }
         }
     }
