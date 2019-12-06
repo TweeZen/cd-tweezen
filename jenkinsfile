@@ -27,8 +27,7 @@ pipeline {
             steps {
                 slackSend color: 'good', message: "🕓 [<${env.JOB_URL}|${env.JOB_NAME}>-<${env.BUILD_URL}|#${env.BUILD_NUMBER}>] Deployment Started!"
                 sh '''
-                    kubectl apply -f deployment_redis.yaml
-                    kubectl apply -f deployment_app.yaml
+                    kubectl apply -f deployment.yaml
                 '''
             }
         }
