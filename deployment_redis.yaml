@@ -30,7 +30,7 @@ spec:
         app: redis
     spec:
       containers:
-      - image: gcr.io/robust-zenith-161810/redis-master
+      - image: eu.gcr.io/unique-iterator-259210/redis-master
         imagePullPolicy: Always
         name: redis-master-sha256
         args: ["--appendonly", "yes", "--save", "60", "1"]

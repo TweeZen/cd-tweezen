@@ -16,8 +16,8 @@ pipeline {
         stage('Google Configuration') {
             steps {
                 sh '''
-                    gcloud auth activate-service-account 592775981948-compute@developer.gserviceaccount.com --key-file=/opt/bitnami/k8s-credentials.json
-                    gcloud config set project robust-zenith-161810
+                    gcloud auth activate-service-account 1006758561507-compute@developer.gserviceaccount.com --key-file=/opt/bitnami/k8s-credentials.json
+                    gcloud config set project unique-iterator-259210
                     gcloud config set compute/zone europe-west1-b
                     gcloud container clusters get-credentials cluster-cicd
                 '''
@@ -25,6 +25,7 @@ pipeline {
         }
         stage('Deployment') {
             steps {
+                slackSend color: 'good', message: "🕓 [<${env.JOB_URL}|${env.JOB_NAME}>-<${env.BUILD_URL}|#${env.BUILD_NUMBER}>] Deployment Started!"
                 sh '''
                     kubectl apply -f deployment_redis.yaml
                     kubectl apply -f deployment_app.yaml
@@ -33,9 +34,6 @@ pipeline {
         }
     }
     post {
-        always {
-            slackSend color: 'good', message: "🕓 [<${env.JOB_URL}|${env.JOB_NAME}>-<${env.BUILD_URL}|#${env.BUILD_NUMBER}>] Deployment Started!"
-        }
         success {
             slackSend color: 'good', message: "☸️ [<${env.JOB_URL}|${env.JOB_NAME}>-<${env.BUILD_URL}|#${env.BUILD_NUMBER}>] Image successfully deployed on Kubernetes!"
         }
