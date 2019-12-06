@@ -30,7 +30,7 @@ spec:
         app: app
     spec:
       containers:
-      - image: eu.gcr.io/unique-iterator-259210/tweezen:1.2-SNAPSHOT-143
+      - image: eu.gcr.io/unique-iterator-259210/tweezen:1.2-DEMO-144
         imagePullPolicy: Always
         name: tweezen-sha256
         readinessProbe:
