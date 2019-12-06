@@ -57,6 +57,7 @@ spec:
   selector:
     app: app
   type: LoadBalancer
+  loadBalancerIP: 34.76.66.56
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -75,7 +76,7 @@ spec:
         app: app
     spec:
       containers:
-      - image: eu.gcr.io/unique-iterator-259210/tweezen:1.2-SNAPSHOT-150
+      - image: eu.gcr.io/unique-iterator-259210/tweezen:1.2-SNAPSHOT-151
         imagePullPolicy: Always
         name: tweezen-sha256
         readinessProbe:
