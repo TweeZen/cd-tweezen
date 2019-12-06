@@ -30,13 +30,13 @@ spec:
         app: app
     spec:
       containers:
-      - image: eu.gcr.io/unique-iterator-259210/tweezen:1.2-DEMO-144
+      - image: eu.gcr.io/unique-iterator-259210/tweezen:1.2-DEMO-145
         imagePullPolicy: Always
         name: tweezen-sha256
         readinessProbe:
           failureThreshold: 3
           httpGet:
-            path: /
+            path: /tweezen
             port: 8080
             scheme: HTTP
           initialDelaySeconds: 20
